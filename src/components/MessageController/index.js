@@ -5,7 +5,7 @@ import './messageController.css'
 
 function MessageController({sendMessage, setMessage, message} ) {
   return (
-    <div className="message-controller">
+    <div className="flex-grow-0 py-3 px-4 border-top">
       <div className="input-group">
         <input 
           type="text" 
@@ -16,12 +16,14 @@ function MessageController({sendMessage, setMessage, message} ) {
           onChange={(e) => {
             setMessage(e.currentTarget.value);
           }}/>
-        <CustomButton 
-          className="input-group-text"
-          actionButton={sendMessage}
-          text='Enviar'
-          color='success'
-        />
+        <div>
+          <CustomButton 
+            className="input-group-text"
+            actionButton={sendMessage}
+            text='Enviar'
+            color='success'
+          />
+        </div>
       </div>
     </div>
   )

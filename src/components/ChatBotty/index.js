@@ -7,7 +7,10 @@ import useBotty from './useBotty';
 import MessageList from 'components/MessageList';
 import CustomButton from 'components/CustomButton';
 
+
 import './chatBotty.css';
+import ConnectedUsers from 'components/ConnectedUsers';
+import HeaderChat from 'components/HeaderChat';
 
 function ChatBotty( {logout} ) {
 
@@ -15,19 +18,30 @@ function ChatBotty( {logout} ) {
   const { botTyping, messages, myMessage, sendMessage, setMyMessage,  } = useBotty();
 
   return (
-    <div className='chat-botty'>
+    <div class="container p-0">
+        <h1 class="h3 mb-3">Messages</h1>
+        <div class="card">
+            <div class="row g-0">
+                <ConnectedUsers/>
+            
+                <div class="col-12 col-lg-7 col-xl-9">
+                <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                    <HeaderChat />
+					</div>
+                    <MessageList messages={messages} userName={user.name}/>
+                    {botTyping && (<p>... typing</p>)}
+                    <br/>
+                    <MessageController sendMessage={sendMessage} setMessage={setMyMessage} message={myMessage}/>
+                    <br/>
+                </div>
+            </div>
+        </div>
       <CustomButton
           actionButton={logout}
-          text='Logout'
+          text='Cerrar Sesión'
           color='primary'
         />
-        <MessageList messages={messages} userName={user.name}/>
-        {botTyping && (<p>... typing</p>)}
-        <br/>
-        <div style={{bottom: '0'}}>
-          <MessageController sendMessage={sendMessage} setMessage={setMyMessage} message={myMessage}/>
-        </div>
-        <br/>
+        
         
     </div>
   )

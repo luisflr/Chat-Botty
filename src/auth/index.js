@@ -11,7 +11,7 @@ function Login() {
         <div className="d-grid gap-2">
             <CustomButton 
                 actionButton={loginWithRedirect}
-                text='Login'
+                text='Iniciar Sesión'
                 color='primary'
             />
         </div>
