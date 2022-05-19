@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useAuth0 } from '@auth0/auth0-react';
+
+import Login from 'auth';
+import ChatBotty from 'components/ChatBotty';
+
 import './App.css';
 
 function App() {
+
+  const {
+    isAuthenticated,
+    isLoading,
+    logout
+  } = useAuth0()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>{
+      isLoading ? (
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+    ) : isAuthenticated  ? <ChatBotty logout={logout}/> : <Login isLoading={isLoading}/> }
     </div>
   );
 }
