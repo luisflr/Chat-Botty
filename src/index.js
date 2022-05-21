@@ -1,22 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import { Auth0Provider } from '@auth0/auth0-react';
-import { doaminAuth0, clientIdAuth0} from 'auth/constants';
+import { Auth0Provider } from "@auth0/auth0-react";
+import { doaminAuth0, clientIdAuth0 } from "auth/constants";
 
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <Auth0Provider
-          domain={doaminAuth0}
-          clientId={clientIdAuth0}
-          redirectUri={window.location.origin}
-        >
+      domain={doaminAuth0}
+      clientId={clientIdAuth0}
+      redirectUri={window.location.origin}
+    >
       <App />
     </Auth0Provider>
   </>

@@ -1,32 +1,33 @@
-import React from 'react';
+import React from "react";
 
-import CustomButton from 'components/CustomButton';
-import './messageController.css'
+import CustomButton from "components/CustomButton";
+import "./messageController.css";
 
-function MessageController({sendMessage, setMessage, message} ) {
+function MessageController({ sendMessage, setMessage, message }) {
   return (
     <div className="flex-grow-0 py-3 px-4 border-top">
       <div className="input-group">
-        <input 
-          type="text" 
+        <input
+          type="text"
           autoFocus
           value={message}
-          className="form-control" 
+          className="form-control"
           placeholder="Ingresa tu mensaje"
           onChange={(e) => {
             setMessage(e.currentTarget.value);
-          }}/>
+          }}
+        />
         <div>
-          <CustomButton 
+          <CustomButton
             className="input-group-text"
             actionButton={sendMessage}
-            text='Enviar'
-            color='success'
+            text="Enviar"
+            color="success"
           />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default MessageController
+export default MessageController;
